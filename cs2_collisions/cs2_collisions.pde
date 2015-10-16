@@ -2,8 +2,8 @@ import java.util.HashSet;
 int scr;
 int pow;
 int powcount;
-// Detect collitions between Breakers and Asteroids.  Remove the
-// Asteroids involved in collisions, and replace them with smalller
+// Detect collisions between Breakers and Asteroids.  Remove the
+// Asteroids involved in collisions, and replace them with smaller
 // Asteroids.  Remove Breakers involved in collisions.
 void handleCollisions() {
      // Asteroids which collided this timestep
@@ -111,7 +111,7 @@ void draw() {
   dt = last_t - t;
   last_t = t;
   
-  //deals with astroid hitting shit 
+  //deals with asteroid hitting shit 
   for(Asteroid a : asteroids) {
     a.update(dt);
     if (hith(a)){
@@ -128,14 +128,14 @@ void draw() {
 
   h.render();
   
-  //starts new level if all astroid are destroyed
+  //starts new level if all asteroid are destroyed
   int na = asteroids.size();
   if (na == 0){
     initialAsteroids++;
     begin(); 
   }
 }
-//checks astroid breaked collision
+//checks asteroid breaker collision
 boolean colliding(Asteroid ac, Breaker bc){
   PVector acc = ac.c();
   PVector bcc = bc.c();  
@@ -170,7 +170,7 @@ void keyPressed() {
     if (keyCode == DOWN){
       h.down();
     }    
-    //alows player to sacrafice score to apply a power at random
+    //allows player to sacrifice score to apply a power at random
     if (keyCode == CONTROL){
       if(scr >= initialAsteroids*10){
         scr = scr - 10*initialAsteroids;
@@ -181,7 +181,7 @@ void keyPressed() {
     }
 }
 
-//checks astroid hero collision
+//checks asteroid hero collision
 boolean hith(Asteroid ac){
  PVector acc = ac.c();
  PVector bcc = h.c();  
