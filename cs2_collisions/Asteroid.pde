@@ -16,7 +16,7 @@ class Asteroid {
   Asteroid() {
     size = 7;
     center = new PVector(random(width), random(height));
-    v = new PVector(200,0);
+    v = new PVector(100,0);
     v.rotate(random(TWO_PI));
   } 
 
@@ -41,7 +41,7 @@ class Asteroid {
    }
   }
   float radius(){
-    return 2*(pow((1.27),(size-4))*10);
+    return (pow((1.27),(size-4))*10);
   }
   // Draw a polygon with the current style.  `polygon(x, y, r, n)
   // draws a n-sided polygon with its circumcenter at (x,y), with a

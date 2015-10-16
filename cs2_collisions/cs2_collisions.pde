@@ -1,7 +1,5 @@
 import java.util.HashSet;
-int scr;
-int pow;
-int powcount;
+
 // Detect collitions between Breakers and Asteroids.  Remove the
 // Asteroids involved in collisions, and replace them with smalller
 // Asteroids.  Remove Breakers involved in collisions.
@@ -50,12 +48,17 @@ ArrayList<Breaker> breakers = new ArrayList();
 float t, last_t, dt;
 Pair<Asteroid, Asteroid> children;
 hero h;
+soucer s;
+int scr;
+int pow;
+int powcount;
 boolean die;
 void setup() {
   begin();
-  size(1000,1000);
+  size(500,500);
 }
 void begin(){
+  s = new soucer();
   h = new hero();
   // Make random Asteroids
   asteroids = new ArrayList();
@@ -125,9 +128,16 @@ void draw() {
   }
   
   handleCollisions();
-
+  
+  s.apea();
+  s.update();
+  s.render();
+  
   h.render();
   
+  if (souchit()){
+    begin(); 
+  }
   //starts new level if all astroid are destroyed
   int na = asteroids.size();
   if (na == 0){
@@ -187,7 +197,19 @@ boolean hith(Asteroid ac){
  PVector bcc = h.c();  
  float acr = ac.radius();
  float dis = acc.dist(bcc);
- if (dis < acr + 1){
+ if (dis < acr + 2){
+   return true;
+  }
+  else{
+    return false;
+  }
+}
+//checks weather the soucer and hero are hitting
+boolean souchit(){
+ PVector soucc = s.cen;
+ PVector bcc = h.c();
+ float dis1 = soucc.dist(bcc);
+ if (dis1 <  7){
    return true;
   }
   else{

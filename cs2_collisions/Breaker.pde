@@ -2,10 +2,12 @@ class Breaker {
   PVector center;
   PVector vel;
 
+  //stationary breaker constructer
   Breaker(PVector c) {
     center = c;
     vel = new PVector(0, 0); 
   }
+  //constructer for moving breakers shot
   Breaker(PVector c, float vx, float vy){
      center = c; 
      vel = new PVector(vx, vy); 

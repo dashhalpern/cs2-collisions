@@ -11,15 +11,19 @@ class hero{
     vel = new PVector (0,0);
     status = 0;
   }
+  //moves forward
   void up(){
     vel.add(cos(ang), sin(ang));
   }
+  //turns counterclockwise
   void l(){
     ang = ang - .2;
   }    
+  //turns clockwise
   void r(){
     ang = ang + .2;
   }
+  // shoots breakers
   void down(){
     //checks to see how many breakers were shot recently
     if (recentshots < 2){
@@ -32,6 +36,7 @@ class hero{
       recentshots++;
     }
   }
+  //gives 'status' whitch is like a power helpign the hero
   void setpower(int p){
     //applys status
     status = p;
@@ -62,6 +67,7 @@ class hero{
     pushMatrix();
       translate(cen.x ,cen.y);
       rotate(ang);
+      //changes color depending on status
       if(status == 1){
         fill(255, 0, 0);
       }else if(status == 2){
